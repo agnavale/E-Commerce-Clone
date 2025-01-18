@@ -2,7 +2,7 @@ import ProductList from './ProductList';
 import useFetch from './useFetch';
 
 const Home = () => {
-    const {data: products, isPending, error} = useFetch('http://localhost:8000/products')
+    const {data: products, isPending, error} = useFetch('https://e-commerce-clone-n2x6.onrender.com/products')
 
     return (  
         <div className="home">
