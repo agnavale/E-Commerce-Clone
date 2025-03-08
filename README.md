@@ -1,4 +1,4 @@
 This project is for learning purposes. [Ongoing] <br>
 Demo link: https://e-commerce-clone-frontend.onrender.com
 
-<img src= "databaseSchema.jpeg" width="1000" height="1000">
+<img src= "databaseSchema.jpeg" width="50%" >
