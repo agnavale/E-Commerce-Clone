@@ -59,13 +59,13 @@ cartSchema.statics.addToCart = async function (product_id, user_id) {
         _id: cartItem._id,
         user_id: cartItem.user_id,
         qty: cartItem.qty,
-        product_id: cartItem.product_id, // Keep product_id separately
+        product_id: cartItem.product_id, 
         name: product.name,
         price: product.price,
         stock: product.stock,
         image: product.image,
         description: product.description
-    };
+    }
 }
 
 // delete item From Cart
