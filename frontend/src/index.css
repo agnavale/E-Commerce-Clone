@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary: #1aac83;
+    --error: #e7195a;
+}
+
+body {
+    background: #f1f1f1;
+    margin:0;
+    font-family: "Poppins";
+}
+
+
+
+/* General styles */
+
+
+
+header {
+    background: #fff;
+}
+
+header .container {
+    max-width: 1400px;
+    margin:0 auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header a {
+    color: #333;
+    text-decoration: none;
+}
+
+.pages {
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* homepage */
+.home {
+    padding:20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product-details {
+    background: #fff;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.product-details img {
+    width: 240px;
+    height: 240px;
+    border: 1px solid #e1e1e1;
+}
+
+.product-details h4{
+    margin: 5px 0; 
+    font-weight: normal;
+}
+
+.product-details p {
+    margin: 0;
+    font-size: 0.9em;
+    color:#555;
+}
+
+.product-details button {
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    margin-top: 10px;
+    padding: 5px 10px;
+    font-family: "Poppins";
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.product-details button:active {
+    transform: scale(0.95);
+    transition: all 100ms ease;
+}
+  
+
+/* new.product form */
+label, input {
+    display: block;
+}
+
+input {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+
+form button{
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+div.error {
+    padding: 10px;
+    background: #ffefef ;
+    border: 1px solid var(--error);
+    color: var(--error);
+    border-radius: 4px;
+    margin: 20px 0;
+}
+
+input.error {
+    border: 1px solid var(--error);
+}
+
+/* navbar */
+nav {
+    display: flex;
+    align-items: center;
+}
+nav a {
+    margin-left: 10px;
+}
+
+nav button {
+    background: #fff;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-family: "Poppins";
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+/* auth form */
+form.signup, form.login {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+/*  */
