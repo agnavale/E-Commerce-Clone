@@ -58,10 +58,10 @@ export const CartContextProvider = ({ children }) => {
     }, [dispatch, user])
 
     const totalItems = state.cart.reduce((acc, item) => acc + item.qty, 0);
-
+    const totalAmount = state.cart.reduce((acc, item) => acc + item.qty * item.price, 0);
 
     return(
-        <CartContext.Provider value= {{...state, dispatch, totalItems}}>
+        <CartContext.Provider value= {{...state, dispatch, totalItems. totalAmount}}>
             { children }
         </CartContext.Provider>
     )
