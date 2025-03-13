@@ -8,8 +8,10 @@ const Home = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
+
+            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
             
-            const response = await fetch('/api/products')
+            const response = await fetch(`${BASE_URI}/api/products`)
             const json = await response.json()
             console.log(json)
 
