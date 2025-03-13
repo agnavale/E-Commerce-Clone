@@ -11,11 +11,7 @@ body {
     font-family: "Poppins";
 }
 
-
-
 /* General styles */
-
-
 
 header {
     background: #fff;
@@ -163,4 +159,51 @@ form.signup, form.login {
     border-radius: 4px;
 }
 
-/*  */
+/* cart page */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;    
+}
+
+.cart {
+    flex: 2;
+    min-width: 300px;
+}
+
+.cart-details {
+    display: flex;
+    background: #fff;
+    border-radius: 4px;
+    margin: 10px auto;
+    padding: 10px;
+    position: relative;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.cart-details img {
+    width: 180px;
+    height: 180px;
+}
+
+.cart-details h4 {
+    font-size: 1.1em;
+    font-weight: normal;
+} 
+
+.total-amount {
+    flex:1;
+    min-width: 300px;
+    align-self: flex-start;
+    display: inline-block;
+    background: #fff;
+    border-radius: 4px;
+    margin: 10px auto;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+
+.total-amount h4{
+    font-size: 1.2em;
+}
