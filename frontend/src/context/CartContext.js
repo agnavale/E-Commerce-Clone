@@ -57,11 +57,11 @@ export const CartContextProvider = ({ children }) => {
         fetchCart() 
     }, [dispatch, user])
 
-    const totalItems = state.cart.reduce((acc, item) => acc + item.qty, 0);
-    const totalAmount = state.cart.reduce((acc, item) => acc + item.qty * item.price, 0);
+    const totalItems = state.cart.reduce((acc, item) => acc + item.qty, 0)
+    const totalAmount = state.cart.reduce((acc, item) => acc + item.qty * item.price, 0)
 
     return(
-        <CartContext.Provider value= {{...state, dispatch, totalItems. totalAmount}}>
+        <CartContext.Provider value= {{...state, dispatch, totalItems, totalAmount}}>
             { children }
         </CartContext.Provider>
     )
