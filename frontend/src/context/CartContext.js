@@ -50,9 +50,11 @@ export const CartContextProvider = ({ children }) => {
                 dispatch({type: 'SET_CART', payload: json })
             }
         }
-        if (user) {
-            fetchCart()
-        }
+        if (!user) {
+            dispatch({ type: 'SET_CART', payload: [] })
+           
+        } 
+        fetchCart() 
     }, [dispatch, user])
 
     const totalItems = state.cart.reduce((acc, item) => acc + item.qty, 0);
