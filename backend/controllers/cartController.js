@@ -34,7 +34,6 @@ const deleteFromCart = async (req, res) => {
     if (!product_id) {
         return res.status(400).json({ error: 'Product ID is required' });
     }
-
     
     try{
         const cartItem = await Cart.deleteFromCart(product_id, user_id)
