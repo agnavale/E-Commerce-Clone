@@ -11,7 +11,11 @@ body {
     font-family: "Poppins";
 }
 
+
+
 /* General styles */
+
+
 
 header {
     background: #fff;
@@ -192,11 +196,53 @@ form.signup, form.login {
     font-weight: normal;
 } 
 
+.strike h4 {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.quantity{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity p{
+    min-width: 20px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+.quantity button{
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    font-family: "Poppins";
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quantity button:hover {
+    background-color: #ccc;
+}
+  
+.cart-details .delete-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 50%;
+    color:#333;
+}
+
 .total-amount {
     flex:1;
     min-width: 300px;
     align-self: flex-start;
-    display: inline-block;
     background: #fff;
     border-radius: 4px;
     margin: 10px auto;
@@ -207,3 +253,14 @@ form.signup, form.login {
 .total-amount h4{
     font-size: 1.2em;
 }
+
+.total-amount button{
+    background: var(--primary);
+    border: 0;
+    color: #fff;
+    padding: 10px;
+    font-family: "Poppins";
+    border-radius: 4px;
+    cursor: pointer;
+}
+
