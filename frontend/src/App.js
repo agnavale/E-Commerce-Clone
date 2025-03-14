@@ -7,9 +7,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Cart from './pages/Cart';
 
-
-
-
 function App() {
   const { user } = useAuthContext()
   return (
@@ -19,13 +16,12 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element = { <Home /> } /> 
-            <Route path="/cart" element = { <Cart /> } /> 
+            <Route path="/cart" element = {user ? <Cart />: <Navigate to="/login" /> } /> 
             <Route path="/login" element = {!user ? <Login />: <Navigate to="/" />} /> 
             <Route path="/signup" element = {!user ? <Signup />:<Navigate to="/" />} /> 
           </Routes>
         </div>
       </BrowserRouter>
-      
     </div>
   );
 }
