@@ -16,9 +16,9 @@ router.get('/', getCart)
 router.post('/', addToCart)
 
 // DELETE a cart item
-router.delete('/:id', deleteFromCart)
+router.delete('/:product_id', deleteFromCart)
 
 // UPDATE a cart item qty
-router.patch('/:id', updateCart)
+router.patch('/:product_id', updateCart)
 
 module.exports = router
