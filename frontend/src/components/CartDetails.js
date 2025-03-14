@@ -24,7 +24,7 @@ const CartDetails = ({item}) => {
         setLoading(true)
         const BASE_URL = process.env.REACT_APP_BACKEND_URI;
         
-        const response = await fetch(`${BASE_URL}/api/cart/` + item.product_id, {
+        const response = await fetch(`${BASE_URL}/api/cart/${item.product_id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -56,7 +56,7 @@ const CartDetails = ({item}) => {
             setLoading(true)
             const BASE_URL = process.env.REACT_APP_BACKEND_URI;
             
-            const response = await fetch(`${BASE_URL}/api/cart/` + item.product_id, {
+            const response = await fetch(`${BASE_URL}/api/cart/${item.product_id}`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
