@@ -16,7 +16,7 @@ const cartSchema = mongoose.Schema({
         ref: 'User',
         required: true
     }
-})
+}, {timestamps: true})
 
 // get all cart items
 cartSchema.statics.getCart = async function (user_id) {
@@ -55,17 +55,17 @@ cartSchema.statics.addToCart = async function (product_id, user_id) {
         await cartItem.save();
     }
 
-     return {
+    return {
         _id: cartItem._id,
         user_id: cartItem.user_id,
         qty: cartItem.qty,
-        product_id: cartItem.product_id, 
+        product_id: cartItem.product_id, // Keep product_id separately
         name: product.name,
         price: product.price,
         stock: product.stock,
         image: product.image,
         description: product.description
-    }
+    };
 }
 
 // delete item From Cart
@@ -76,7 +76,7 @@ cartSchema.statics.deleteFromCart = async function (product_id, user_id) {
         throw new Error('Item not found in cart');
     }
 
-    return { message: 'Item removed from cart' };
+    return result
 }
 
 // update quantity
@@ -88,6 +88,11 @@ cartSchema.statics.updateCart = async function (product_id, user_id, qty) {
     if (qty === 0) {
         await this.deleteOne({ product_id, user_id });
         return { message: 'Item removed from cart' };
+    }
+    
+    const product = await Product.findById(product_id);
+    if (!product || qty > product.stock) {
+        throw new Error('Not enough stock');
     }
 
     const cartItem = await this.findOne({ product_id, user_id });
