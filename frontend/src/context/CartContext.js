@@ -20,9 +20,13 @@ export const cartReducer = (state, action) => {
             }
         case 'UPDATE_ITEM':
             return {
-                cart: state.cart.map(item => 
-                    item._id === action.payload._id ? {...item, qty: item.qty + action.payload.qty} : item
-                )
+                cart: state.cart
+                    .map(item => 
+                        item._id === action.payload._id 
+                            ? { ...item, qty: action.payload.qty }  
+                            : item
+                    )
+                    .filter(item => item.qty > 0) 
             }
         default:
             return state
@@ -38,8 +42,7 @@ export const CartContextProvider = ({ children }) => {
     useEffect(() => {
         const fetchCart = async () => {
 
-            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
-            const response = await fetch(`${BASE_URL}/api/cart`, {
+            const response = await fetch('/api/cart', {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
@@ -50,15 +53,16 @@ export const CartContextProvider = ({ children }) => {
                 dispatch({type: 'SET_CART', payload: json })
             }
         }
+
         if (!user) {
             dispatch({ type: 'SET_CART', payload: [] })
-           
+            return
         } 
         fetchCart() 
     }, [dispatch, user])
 
-    const totalItems = state.cart.reduce((acc, item) => acc + item.qty, 0)
-    const totalAmount = state.cart.reduce((acc, item) => acc + item.qty * item.price, 0)
+    const totalItems = state.cart.reduce((acc, item) => acc + item.qty, 0);
+    const totalAmount = state.cart.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2);;
 
     return(
         <CartContext.Provider value= {{...state, dispatch, totalItems, totalAmount}}>
