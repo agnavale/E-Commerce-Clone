@@ -25,7 +25,9 @@ const ProductDetails = ({ product }) => {
         } else {
             const data = { product_id: product._id}
 
-            const response = await fetch(`/api/cart`, {
+            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
+            
+            const response = await fetch(`${BASE_URL}/api/cart`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
