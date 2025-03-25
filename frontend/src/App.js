@@ -6,6 +6,9 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Cart from './pages/Cart';
+import NotFound from './pages/NotFound';
+import Product from './pages/Product';
+
 
 function App() {
   const { user } = useAuthContext()
@@ -16,9 +19,11 @@ function App() {
         <div className="pages">
           <Routes>
             <Route path="/" element = { <Home /> } /> 
+            <Route path="/product/:id" element = {<Product />} /> 
             <Route path="/cart" element = {user ? <Cart />: <Navigate to="/login" /> } /> 
             <Route path="/login" element = {!user ? <Login />: <Navigate to="/" />} /> 
             <Route path="/signup" element = {!user ? <Signup />:<Navigate to="/" />} /> 
+            <Route path= "*" element = {<NotFound />} />
           </Routes>
         </div>
       </BrowserRouter>
