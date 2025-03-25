@@ -8,7 +8,9 @@ const Product = () => {
     
     useEffect(() => {
         const fetchProduct = async () => {
-            const response = await fetch(`/api/products/${id}`)
+            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
+            
+            const response = await fetch(`${BASE_URL}/api/products/${id}`)
             const json = await response.json();
             console.log(json)
 
