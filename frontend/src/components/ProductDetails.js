@@ -2,6 +2,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useCartContext } from "../hooks/useCartContext";
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductDetails = ({ product }) => {
     const { cart, dispatch } = useCartContext()
@@ -24,8 +25,7 @@ const ProductDetails = ({ product }) => {
         } else {
             const data = { product_id: product._id}
 
-            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
-            const response = await fetch(`${BASE_URL}/api/cart`, {
+            const response = await fetch(`/api/cart`, {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
@@ -50,8 +50,10 @@ const ProductDetails = ({ product }) => {
 
     return (
         <div className="product-details">
-            <img src="images/product.avif" alt="product-image" />
-            <h4> {product.name} </h4>
+            <Link to={`/product/${product._id}`} >
+                <img src="/images/product.avif" alt="product-image" />
+                <h4> {product.name} </h4>
+            </Link>
             <p> <strong > Price:</strong> {product.price} </p>
             <button onClick = {handleClick} disabled={isAdding}> Add to cart  </button>
             { error && <div className="error"> {error} </div> }
