@@ -13,7 +13,8 @@ const Home = () => {
             return
         }
         const fetchProducts = async () => {
-            const response = await fetch(`/api/products?search=${query}`);
+            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
+            const response = await fetch(`${BASE_URL}/api/products?search=${query}`);
             const json = await response.json();
 
             if (response.ok) {
