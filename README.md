@@ -3,3 +3,6 @@ Implementing features like user authentication, product menu, and a shopping car
 <br>
 demo link: https://e-commerce-clone-frontend.onrender.com <br>
 (note that you may have to wait for some time, since backend server takes time to load)
+
+Login with test account email: x@x.com pass: Xxx@1234
+you can type 'a' in search to see most of products.
