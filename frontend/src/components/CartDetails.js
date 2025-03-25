@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { useAuthContext } from "../hooks/useAuthContext"
 import { useCartContext } from "../hooks/useCartContext"
 
+
 const CartDetails = ({item}) => {
     const { dispatch } = useCartContext()
     const { user } = useAuthContext()
@@ -22,9 +23,7 @@ const CartDetails = ({item}) => {
             return
         }
         setLoading(true)
-        const BASE_URL = process.env.REACT_APP_BACKEND_URI;
-        
-        const response = await fetch(`${BASE_URL}/api/cart/${item.product_id}`, {
+        const response = await fetch('/api/cart/' + item.product_id, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -54,9 +53,7 @@ const CartDetails = ({item}) => {
             }
 
             setLoading(true)
-            const BASE_URL = process.env.REACT_APP_BACKEND_URI;
-            
-            const response = await fetch(`${BASE_URL}/api/cart/${item.product_id}`, {
+            const response = await fetch('/api/cart/' + item.product_id, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,
@@ -94,11 +91,11 @@ const CartDetails = ({item}) => {
                     </div>
                 )}
 
-                <button className="material-symbols-outlined delete-btn" 
+                <button className="delete-btn" 
                     onClick={handleDelete} 
                     disabled={loading}
                 > 
-                    delete 
+                    <span className="material-symbols-outlined">delete</span>
                 </button>
             </div>
         </div>
