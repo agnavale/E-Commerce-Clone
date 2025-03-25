@@ -1,11 +1,12 @@
 import { useCartContext } from "../hooks/useCartContext";
 import CartDetails from "../components/CartDetails";
 
+
 const Cart = () => {
     const { cart, totalItems, totalAmount } = useCartContext()
     
     return (  
-        <div className="container">
+        <div className="cart-container">
             <div className="cart">
                 { cart && cart.map(item => (
                     <CartDetails key={item._id} item = {item} />
