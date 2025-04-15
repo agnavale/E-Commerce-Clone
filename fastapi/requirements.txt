@@ -1,5 +1,4 @@
-fastapi
+fastapi[all]
 uvicorn
 requests
-python-multipart  # required for file upload
 
