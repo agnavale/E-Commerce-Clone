@@ -70,6 +70,7 @@ from fastapi import FastAPI, File, UploadFile, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 import io
+import os
 
 app = FastAPI()
 
@@ -83,7 +84,7 @@ app.add_middleware(
 )
 
 # Hugging Face Inference API settings
-HF_TOKEN = "<your_huggingface_token>"
+HF_TOKEN = os.environ.get("HF_TOKEN")
 IMAGE_MODEL_URL = "https://api-inference.huggingface.co/models/openai/clip-vit-base-patch32"
 TEXT_MODEL_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
 HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
