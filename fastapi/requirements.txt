@@ -1,4 +1,5 @@
 fastapi
-uvicorn[standard]
-sentence-transformers
-Pillow
+uvicorn
+requests
+python-multipart  # required for file upload
+
