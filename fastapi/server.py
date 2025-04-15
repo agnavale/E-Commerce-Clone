@@ -101,6 +101,7 @@ async def embed_image(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Image embedding failed: {e}")
 
+
 @app.post("/embed-text/")
 async def embed_text(request: Request):
     try:
@@ -108,8 +109,10 @@ async def embed_text(request: Request):
         text = data.get("text", "")
         payload = {"inputs": text}
         response = requests.post(TEXT_MODEL_URL, headers=HEADERS, json=payload)
+        
         if response.status_code != 200:
             raise HTTPException(status_code=response.status_code, detail=response.text)
+        
         return {"embedding": response.json()}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Text embedding failed: {e}")
