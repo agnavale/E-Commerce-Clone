@@ -1,7 +1,6 @@
 from fastapi import FastAPI, File, UploadFile, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import requests
-import os
+
 from huggingface_hub import InferenceClient
 
 # Initialize FastAPI application
@@ -17,8 +16,7 @@ app.add_middleware(
 )
 
 # Initialize Hugging Face InferenceClient
-HF_TOKEN = os.getenv("HF_TOKEN")  # Make sure the Hugging Face token is set in the environment
-client = InferenceClient(api_key=HF_TOKEN)
+client = InferenceClient(api_key="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")
 
 # Define model URLs
 IMAGE_MODEL_URL = "openai/clip-vit-base-patch32"
@@ -44,4 +42,3 @@ async def embed_text(request: Request):
         return {"embedding": text_embedding}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Text embedding failed: {e}")
-
