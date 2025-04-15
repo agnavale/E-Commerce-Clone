@@ -29,7 +29,7 @@ async def embed_image(file: UploadFile = File(...)):
     try:
         image_bytes = await file.read()  # Read the uploaded image file
         # Get image embedding from Hugging Face using the InferenceClient
-        image_embedding = client.feature_extraction(image_bytes, model=IMAGE_MODEL_URL)
+        image_embedding = client.feature_extraction(image_bytes, model=IMAGE_MODEL_URL).tolist()
         return {"embedding": image_embedding}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Image embedding failed: {e}")
@@ -40,7 +40,7 @@ async def embed_text(request: Request):
         data = await request.json()
         text = data.get("text", "")
         # Get text embedding from Hugging Face using the InferenceClient
-        text_embedding = client.feature_extraction(text, model=TEXT_MODEL_URL)
+        text_embedding = client.feature_extraction(text, model=TEXT_MODEL_URL).tolist()
         return {"embedding": text_embedding}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Text embedding failed: {e}")
