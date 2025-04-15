@@ -89,6 +89,11 @@ IMAGE_MODEL_URL = "https://api-inference.huggingface.co/models/openai/clip-vit-b
 TEXT_MODEL_URL = "https://api-inference.huggingface.co/models/sentence-transformers/all-MiniLM-L6-v2"
 HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
 
+@app.get("/")
+def read_root():
+    return {"message": "API running"}
+
+
 @app.post("/embed-image/")
 async def embed_image(file: UploadFile = File(...)):
     try:
