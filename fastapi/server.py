@@ -107,7 +107,7 @@ async def embed_text(request: Request):
     try:
         data = await request.json()
         text = data.get("text", "")
-        payload = {"inputs": text}
+        payload = {"inputs": [text]}
         response = requests.post(TEXT_MODEL_URL, headers=HEADERS, json=payload)
         
         if response.status_code != 200:
