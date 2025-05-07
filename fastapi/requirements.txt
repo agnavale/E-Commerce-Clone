@@ -1,6 +1,6 @@
 fastapi
-requests
-huggingface_hub
 uvicorn
-python-multipart
-numpy
+sentence-transformers
+pillow
+aiofiles
+
