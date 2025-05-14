@@ -17,7 +17,7 @@ const router = express.Router()
 router.post('/imageSearch/', upload.single('file'), imageSearch)
 
 // ai text search
-router.get('/textSearch/', textSearch)
+router.get('/textSearch/', getProducts)
 
 // GET a single Product
 router.get('/:id', getProduct)
